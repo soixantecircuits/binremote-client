@@ -1,0 +1,11 @@
+<div ng-controller="binsCtrl">
+	<h3>Bins:</h3>
+	<ul>
+		<li ng-repeat="bin in bins" id="elem-{{bin.id}}">
+		<h4>
+			<a href="javascript:void(0);">{{bin.name}}</a>
+		</h4>
+		<button style="background: url('{{bin.img}}');" class="sleep"></button>
+		</li>
+	</ul>
+</div>

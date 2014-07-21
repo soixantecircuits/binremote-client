@@ -1,0 +1,16 @@
+{
+  "name": "binremoteclient",
+  "main": "views/index.html",
+  "version": "0.0.1",
+  "single-instance": true,
+  "window": {
+    "title": "Bin Remote Client",
+    "position": "center",
+    "width": 1080,
+    "height": 720,
+    "min_width": 1080,
+    "min_height": 720,
+    "toolbar": true
+  },
+  "chromium-args": "--child-clean-exit"
+}

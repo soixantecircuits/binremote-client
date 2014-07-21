@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="binremote">
+<head>
+	<meta charset='utf-8'>
+	<title>BinRemoteClient</title>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+	<h1><a href="#/">Bin Remote Client</a></h1>
+	<p>Bin remote allows you to start application from any device within the same local network (WiFi or LAN).</p>
+
+	<ul class="menu">
+		<li><button id='scan-btn'>Scan</button></li>
+		<li><a href="#/bins">Bins</a></li>
+		<li><a href="#/settings">Settings</a></li>
+	</ul>
+
+	<div ng-view></div>
+
+	<script type="text/javascript" src='../js/lib/angular/angular.js'></script>
+	<script type="text/javascript" src='../js/lib/angular/angular-route.js'></script>
+	<script type="text/javascript" src="../js/lib/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src='../js/nw.js'></script>
+	<script type="text/javascript" src='../js/settings.js'></script>
+	<script type="text/javascript" src='../js/controllers.js'></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+	<script type="text/javascript" src="../js/events.js"></script>
+</body>
+</html>

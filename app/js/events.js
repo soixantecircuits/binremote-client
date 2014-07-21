@@ -1,0 +1,1 @@
+$('#scan-btn').on('click', scan);
