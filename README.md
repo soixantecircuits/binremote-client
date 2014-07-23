@@ -17,7 +17,7 @@ $ [sudo] npm install
 To launch Bin Remote Client, type the following commands in a terminal:
 
 ```bash
-$ cd binRemote/
+$ cd binremote-client/
 $ npm start
 ```
 Your server is now running.

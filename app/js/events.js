@@ -1,1 +1,6 @@
-$('#scan-btn').on('click', scan);
+$(function(){
+	$('#scan-btn').on('click', function(e){
+		e.preventDefault();
+		scanDisk();
+	});
+});

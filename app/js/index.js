@@ -1,23 +1,39 @@
-// var db = new IndexedDb({namespace: "binremote"});
-// db.addCollection('bins');
-
 var walkPath = process.env.HOME + '/sources/';
 
 var bins;
 
-function scan(){
-	console.log(walkPath);
+function scanDisk(){
+	console.log('Crawling from: ' + walkPath);
 	bins = [];
 	walk.sync(walkPath, function(path){
 		if(path.indexOf('remote.json') > -1) {
 			console.log('Remote found in: ' + path);
-			var remote = fs.readFileSync(path,'utf8');
-			var remote = JSON.parse(remote);
-			bins.push(remote);
-			// db.bins.upsert(remote);
+			var bin = fs.readFileSync(path,'utf8');
+			bin = JSON.parse(bin);
+			bin.id = bins.length + 1;
+			bin.lastupdate = Date.now();
+			bin.state = 'iddle';
+			bins.push(bin);
 		}
 	});
-	console.log('disk scanned');
+	console.log('Disk scanned.');
+}
+
+function createRemote(){
+	var remote = {
+		PCname: settings.pcname,
+		group: settings.group,
+		bins: bins
+	}
+	return remote;
+}
+
+function startBin(el){
+	exec(el.run);
+}
+
+function stopBin(el){
+	exec(el.kill);
 }
 
 app.config(function($routeProvider){

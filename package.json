@@ -14,9 +14,7 @@
     "type": "git"
   },
   "dependencies": {
-    "ddp": "^0.7.0",
     "lodash": "^2.4.1",
-    "minimongo": "^2.4.2",
     "walkdir": "0.0.7"
   },
   "devDependencies": {
