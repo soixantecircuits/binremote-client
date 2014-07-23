@@ -3,13 +3,14 @@ var binremoteServer = new Asteroid("localhost:3000"),
 	remotes,
 	remotesQuery;
 
-function connectToMeteor(_mail, _pass) {
+function connectToMeteor(mail, pass, pc) {
 	console.log('connect to meteor');
-	var mail = _mail;
-	var pass = _pass;
 	binremoteServer.loginWithPassword(mail, pass).done(function(res) {
-		console.log(res);
 		binremoteServer.subscribe("remotes");
+
+		settings.usermail = mail;
+		settings.password = pass;
+		settings.pcname = pc;
 
 		scanDisk();
 		updateCollection();
