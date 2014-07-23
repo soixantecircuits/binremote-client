@@ -7,10 +7,16 @@ function connectToMeteor(mail, pass, pc) {
 	console.log('connect to meteor');
 	binremoteServer.loginWithPassword(mail, pass).done(function(res) {
 		binremoteServer.subscribe("remotes");
+		binremoteServer.subscribe("users");
+
+		var users = binremoteServer.getCollection('users');
+		var user = users.reactiveQuery({}).result;
+		user = user[0];
 
 		settings.usermail = mail;
 		settings.password = pass;
 		settings.pcname = pc;
+		settings.group = user.profile.company.group;
 
 		scanDisk();
 		updateCollection();
