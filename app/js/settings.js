@@ -7,6 +7,8 @@ var	fs = require('fs'),
 
 var app = angular.module('binremote',['ngRoute']);
 
+storage.init();
+
 var user = {
 	usermail: '',
 	password: '',

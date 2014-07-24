@@ -30,10 +30,12 @@ function createRemote(){
 
 function startBin(el){
 	exec(el.run);
+	$('#view-container').find('#elem-'+el.id).removeClass('iddle').addClass('started');
 }
 
 function stopBin(el){
 	exec(el.kill);
+	$('#view-container').find('#elem-'+el.id).removeClass('started').addClass('iddle');
 }
 
 app.config(function($routeProvider){

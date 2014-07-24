@@ -47,8 +47,6 @@ home/
 
 Refresh the page, and that's it !
 
-> NOTE: the images must be 200x200
-
 ### Troubleshooting
 
 #### Linux:

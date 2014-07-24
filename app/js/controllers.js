@@ -8,8 +8,14 @@ app.controller('homeCtrl', function(){
 
 		if(mail.length > 0 && pass.length > 0){
 			connectToMeteor(mail, pass);
-		} else {
-			alert('Il faut remplir les champs svp !');
+		} else if(!form.find('.error').length) {
+			form.append('<p class="error" style="display:none;">You need to fill up the fields :)</p>');
+			form.find('.error').fadeIn(300);
+			setTimeout(function(){
+				form.find('.error').fadeOut(1000, function(){
+					this.remove();
+				});
+			}, 3000);
 		}
 	});
 });

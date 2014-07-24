@@ -1,8 +1,158 @@
-* {
-	margin: 0;
-	padding: 0;
+/*
+	HEADER FOOTER
+*/
+.main-header {
+	text-align: center;
+	margin: 30px 0;
 }
 
-body {
-	font-family: sans-serif;
+ul.menu > li {
+	display: inline-block;
+	margin: 0 5px;
+}
+
+.main-footer {
+	text-align: center;
+	color: #777;
+}
+
+/*
+	LOGIN FORM
+*/
+
+form.login {
+	margin:0 auto 30px;
+	width: 300px;
+}
+
+.login h2 {
+	text-align: center;
+}
+
+.login > input {
+	width: 94%;
+	padding: 0 3%;
+	height: 30px;
+	font-size: 16px;
+	vertical-align: middle;
+	display: block;
+	margin: 10px auto;
+}
+
+.login > label {
+	text-align: left;
+	margin-top: 5px;
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.login .info {
+	text-align: center;
+}
+
+/*
+	BINS
+*/
+
+.bins-ul > li {
+	display: inline-block;
+	width: 39%;
+	margin: 10px 5%;
+	border: 1px solid #CCC;
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: cover;
+	border-radius: 5px;
+}
+
+.bins-ul > li.iddle {
+	box-shadow: 0px 8px 10px 5px #c0c0c0;
+}
+
+.bins-ul > li.started {
+	box-shadow: 0px 2px 10px 5px #AAA;
+}
+
+.bins-ul > li:before {
+	content: '';
+	display: block;
+	padding-top: 100%;
+}
+
+.bins-ul .bin-container {
+	position: absolute;
+	top: 60%;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #FFF;
+	border-radius: 0 0 5px 5px;
+}
+
+/*
+	COMMONS
+*/
+
+#view-container {
+	margin: auto;
+	max-width: 500px;
+	min-width: 250px;
+}
+
+button {
+	background: none;
+	border: 1px solid #AAA;
+}
+
+button:hover {
+	border-color: #212121;
+}
+
+input {
+	border: 1px solid #BBB;
+	color: #777;
+}
+
+input:hover,
+input:focus {
+	border-color: #212121;
+	color: #212121;
+}
+
+input[type='submit'] {
+	color: #FFF;
+	background-color: #212121;
+	width: 100%;
+}
+
+input[type='submit']:hover,
+input[type='submit']:focus {
+	color: #212121;
+	background-color: #FFF;
+}
+
+.info {
+	color: #777;
+}
+
+.error {
+	color: #C33;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
 }
