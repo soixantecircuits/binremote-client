@@ -31,8 +31,8 @@ app.controller('settingsCtrl', function($scope){
 	form.submit(function (event){
 		event.preventDefault();
 		if($('#walk-dir').val().length > 0) {
-			walkPath = $('#walk-dir').val();
-			console.log(walkPath);
+			user.path = $('#walk-dir').val();
+			console.log(user.path);
 		}
 	});
 });

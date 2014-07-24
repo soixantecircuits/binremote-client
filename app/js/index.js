@@ -1,22 +1,28 @@
-var walkPath = process.env.HOME + '/sources/';
-
 var bins;
+var emitter;
 
 function scanDisk(){
-	console.log('Crawling from: ' + walkPath);
+	console.log('Crawling from: ' + user.path);
 	bins = [];
-	walk.sync(walkPath, function(path){
-		if(path.indexOf('remote.json') > -1) {
-			console.log('Remote found in: ' + path);
-			var bin = fs.readFileSync(path,'utf8');
+
+	emitter = walk(user.path);
+	emitter.on('file', function (file, stat){
+		if(file.indexOf('remote.json') > -1) {
+			console.log('Remote found in: ' + file);
+			var bin = fs.readFileSync(file,'utf8');
 			bin = JSON.parse(bin);
 			bin.id = bins.length + 1;
 			bin.lastupdate = Date.now();
 			bin.state = 'iddle';
 			bins.push(bin);
 		}
+	}).on('end', function(){
+		console.log('Disk scanned.');
 	});
-	console.log('Disk scanned.');
+
+	if($('#scan-btn').hasClass('scanning')){
+		$('#scan-btn').removeClass('scanning');
+	}
 }
 
 function createRemote(){

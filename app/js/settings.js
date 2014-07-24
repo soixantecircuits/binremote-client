@@ -12,6 +12,7 @@ storage.init();
 var user = {
 	usermail: '',
 	password: '',
+	path: process.env.HOME,
 	pcname: require('os').hostname(),
 	group: ''
 }
