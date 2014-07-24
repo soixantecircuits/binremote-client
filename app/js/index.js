@@ -21,8 +21,8 @@ function scanDisk(){
 
 function createRemote(){
 	var remote = {
-		PCname: settings.pcname,
-		group: settings.group,
+		PCname: user.pcname,
+		group: user.group,
 		bins: bins
 	}
 	return remote;

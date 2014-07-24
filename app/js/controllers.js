@@ -3,8 +3,8 @@ app.controller('homeCtrl', function(){
 	form.garlic();
 	form.submit(function (event){
 		event.preventDefault();
-		var mail = settings.usermail = $('#usermail').val();
-		var pass = settings.password = $('#userpass').val();
+		var mail = user.usermail = $('#usermail').val();
+		var pass = user.password = $('#userpass').val();
 
 		if(mail.length > 0 && pass.length > 0){
 			connectToMeteor(mail, pass);
