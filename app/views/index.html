@@ -6,14 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="../css/default.css">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 </head>
-<body>
-	<header class="main-header" ng-controller="mainCtrl">
-		<h1><a href="#/">Bin Remote Client</a></h1>
+<body ng-controller="mainCtrl">
+	<header id="main-header" class="main-header" >
+		<h1>Bin Remote Client</h1>
 		<ul class="menu">
-			<li><button id='scan-btn'>Scan</button></li>
+			<!-- <li><button id='scan-btn'>Scan</button></li> -->
+			<li><a href="javscript:void(0);" title="Scan" ng-click='toggleScan()'>Scan</a></li>
 			<li><a href="#/bins">Bins</a></li>
-			<li><a href="#/settings">Settings</a></li>
-			<li><button id="logout-btn">Log out</button></li>
+			<li><a href="#/path">Path</a></li>
+			<!-- <li><button id="logout-btn">Log out</button></li> -->
+			<li><a href="#/signin" title="Log out" ng-click="binremoteServer.logout();">Log out</a></li>
 		</ul>
 	</header>
 
@@ -36,6 +38,5 @@
 	<script src="../js/index.js"></script>
 	<script src="../js/realtime.js"></script>
 	<script src='../js/controllers.js'></script>
-	<script src="../js/events.js"></script>
 </body>
 </html>

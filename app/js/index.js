@@ -1,9 +1,11 @@
 var bins;
 var emitter;
+var isScanning = false;
 
-function scanDisk(){
+function scanDisk(cb){
 	console.log('Crawling from: ' + currentUser.path);
 	bins = [];
+	isScanning = true;
 
 	emitter = walk(currentUser.path);
 	emitter.on('file', function (file, stat){
@@ -15,10 +17,14 @@ function scanDisk(){
 			bin.lastupdate = Date.now();
 			bin.state = 'iddle';
 			bins.push(bin);
+			if(cb){
+				cb();
+			}
 		}
 	}).on('end', function(){
 		console.log('Disk scanned.');
 		updateCollection();
+		isScanning = false;
 	});
 
 	if($('#scan-btn').hasClass('scanning')){
@@ -37,6 +43,7 @@ function createRemote(){
 
 function startBin(el){
 	exec(el.run);
+	el.count ++;
 	$('#view-container').find('#elem-'+el.id).removeClass('iddle').addClass('started');
 }
 
@@ -51,9 +58,9 @@ app.config(function($routeProvider){
 		templateUrl: 'partials/bins.html',
 		controller: 'binsCtrl'
 	})
-	.when('/settings', {
-		templateUrl: 'partials/settings.html',
-		controller: 'settingsCtrl'
+	.when('/path', {
+		templateUrl: 'partials/path.html',
+		controller: 'pathCtrl'
 	})
 	.when('/bins', {
 		templateUrl: 'partials/bins.html',

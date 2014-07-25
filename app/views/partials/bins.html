@@ -1,5 +1,8 @@
 <div>
-	<h3>Bins:</h3>
+	<p class="info">You currently have <strong>{{count}}</strong> bins.
+	<br>Maybe it's time for a little <a href="javascript:void(0);" title="scan" ng-click='toggleScan()'>scan</a> ?
+	<br>Crawler will start from {{path}}.</p>
+
 	<ul class="bins-ul">
 		<li ng-repeat="bin in bins" id="elem-{{bin.id}}" class="iddle trans-all" style="background-image:url('{{bin.img}}');">
 			<div class="bin-container">

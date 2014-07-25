@@ -2,7 +2,20 @@ var binremoteServer = new Asteroid("localhost:3000");
 
 function connectToMeteor(mail, pass, cb) {
 	console.log('connect to meteor');
-	binremoteServer.loginWithPassword(mail, pass).done(function(res) {
+	binremoteServer.loginWithPassword(mail, pass)
+	.fail(function (res){
+		var header = $('#main-header');
+		if(!header.find('.notice').length) {
+			header.append('<p class="notice" style="display:none;">' + res.reason + '.</p>');
+			header.find('.notice').fadeIn(300);
+			setTimeout(function(){
+				header.find('.notice').fadeOut(1000, function(){
+					this.remove();
+				});
+			}, 3000);
+		}
+	})
+	.done(function(res) {
 		binremoteServer.subscribe("remotes");
 		binremoteServer.subscribe("users");
 
@@ -13,7 +26,7 @@ function connectToMeteor(mail, pass, cb) {
 		currentUser.mail = user.profile.email;
 		currentUser.company = user.profile.company.name;
 		currentUser.group = user.profile.company.group;
-		storage.setItem('user', currentUser);
+		storage.setItem('user', user);
 
 		var remotes = binremoteServer.getCollection('remotes');
 		var remotesQuery = remotes.reactiveQuery({});
@@ -23,23 +36,34 @@ function connectToMeteor(mail, pass, cb) {
 			storage.setItem('remotes', data);
 			checkStateChange();
 		});
-	});
+		if(currentUser.path != ''){
+			window.location = "#/bins";
+		} else {
+			window.location = "#/path";
+		}
+	})
 	cb();
 }
 
-var activeBin;
+var activeBin = [];
 function checkStateChange(){
 	var data = storage.getItem('remotes');
 
 	if(data != undefined){
 		_.forEach(data.bins, function(bin){
-			if(bin.state == 'started'){
+			console.log(activeBin);
+			var binFind = _.findIndex(activeBin, function(el){
+				console.log(el);
+				return bin.id === el;
+			});
+			console.log(binFind);
+			if(bin.state == 'started' && binFind < 0){
 				startBin(bin);
-				activeBin = bin.id;
+				activeBin.push(bin.id);
 				console.log('I just launched: ' + bin.name);
-			} else if(bin.state == 'iddle' && bin.id == activeBin){
+			} else if(bin.state == 'iddle' && binFind > 0){
 				stopBin(bin);
-				activeBin = null;
+				_.pluck(activeBin, bin.id);
 				console.log('I just killed: ' + bin.name);
 			}
 		})

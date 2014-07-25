@@ -16,23 +16,25 @@ ul.menu > li {
 	color: #777;
 }
 
+.notice {
+	color: #F55;
+}
+
 /*
 	LOGIN FORMS
 */
 
-form.login,
-form.signup {
+form.vertical-forms {
 	margin:0 auto 30px;
 	width: 300px;
 }
 
-.login h2,
-.signup h2 {
+.vertical-forms h2 {
 	text-align: center;
 }
 
-.login > input,
-.signup > input {
+.vertical-forms > input,
+.vertical-forms > button {
 	width: 94%;
 	padding: 0 3%;
 	height: 30px;
@@ -42,16 +44,14 @@ form.signup {
 	margin: 10px auto;
 }
 
-.login > label,
-.signup > label {
+.vertical-forms > label {
 	text-align: left;
 	margin-top: 5px;
 	text-transform: uppercase;
 	font-weight: 700;
 }
 
-.login .info,
-.signup .info {
+.vertical-forms .info {
 	text-align: center;
 }
 
@@ -143,21 +143,4 @@ input[type='submit']:focus {
 
 .error {
 	color: #C33;
-}
-
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
 }
