@@ -1,26 +1,22 @@
-var binremoteServer = new Asteroid("localhost:3000"),
-	remotes,
-	remotesQuery;
+var binremoteServer = new Asteroid("localhost:3000");
 
-function connectToMeteor(mail, pass) {
+function connectToMeteor(mail, pass, cb) {
 	console.log('connect to meteor');
 	binremoteServer.loginWithPassword(mail, pass).done(function(res) {
 		binremoteServer.subscribe("remotes");
 		binremoteServer.subscribe("users");
 
 		var users = binremoteServer.getCollection('users');
-		var user = users.reactiveQuery({}).result;
-		user = user[0];
+		var userQuery = users.reactiveQuery({}).result;
+		user = userQuery[0];
 
-		user.usermail = mail;
-		user.password = pass;
-		user.group = user.profile.company.group;
+		currentUser.mail = user.profile.email;
+		currentUser.company = user.profile.company.name;
+		currentUser.group = user.profile.company.group;
+		storage.setItem('user', currentUser);
 
-		scanDisk();
-		updateCollection();
-
-		remotes = binremoteServer.getCollection('remotes');
-		remotesQuery = remotes.reactiveQuery({});
+		var remotes = binremoteServer.getCollection('remotes');
+		var remotesQuery = remotes.reactiveQuery({});
 		remotesQuery.on('change', function (){
 			var data = this.result;
 			data = data[0];
@@ -28,23 +24,26 @@ function connectToMeteor(mail, pass) {
 			checkStateChange();
 		});
 	});
+	cb();
 }
 
 var activeBin;
 function checkStateChange(){
 	var data = storage.getItem('remotes');
 
-	_.forEach(data.bins, function(bin){
-		if(bin.state == 'started'){
-			startBin(bin);
-			activeBin = bin.id;
-			console.log('I just launched: ' + bin.name);
-		} else if(bin.state == 'iddle' && bin.id == activeBin){
-			stopBin(bin);
-			activeBin = null;
-			console.log('I just killed: ' + bin.name);
-		}
-	})
+	if(data != undefined){
+		_.forEach(data.bins, function(bin){
+			if(bin.state == 'started'){
+				startBin(bin);
+				activeBin = bin.id;
+				console.log('I just launched: ' + bin.name);
+			} else if(bin.state == 'iddle' && bin.id == activeBin){
+				stopBin(bin);
+				activeBin = null;
+				console.log('I just killed: ' + bin.name);
+			}
+		})
+	}
 }
 
 function updateCollection() {

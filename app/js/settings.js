@@ -9,10 +9,11 @@ var app = angular.module('binremote',['ngRoute']);
 
 storage.init();
 
-var user = {
-	usermail: '',
-	password: '',
+var currentUser = {
+	mail: '',
+	pass: '',
 	path: process.env.HOME,
 	pcname: require('os').hostname(),
+	company: '',
 	group: ''
 }

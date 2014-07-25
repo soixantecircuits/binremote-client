@@ -2,10 +2,10 @@ var bins;
 var emitter;
 
 function scanDisk(){
-	console.log('Crawling from: ' + user.path);
+	console.log('Crawling from: ' + currentUser.path);
 	bins = [];
 
-	emitter = walk(user.path);
+	emitter = walk(currentUser.path);
 	emitter.on('file', function (file, stat){
 		if(file.indexOf('remote.json') > -1) {
 			console.log('Remote found in: ' + file);
@@ -18,6 +18,7 @@ function scanDisk(){
 		}
 	}).on('end', function(){
 		console.log('Disk scanned.');
+		updateCollection();
 	});
 
 	if($('#scan-btn').hasClass('scanning')){
@@ -27,8 +28,8 @@ function scanDisk(){
 
 function createRemote(){
 	var remote = {
-		PCname: user.pcname,
-		group: user.group,
+		PCname: currentUser.pcname,
+		group: currentUser.group,
 		bins: bins
 	}
 	return remote;
@@ -47,8 +48,8 @@ function stopBin(el){
 app.config(function($routeProvider){
 	$routeProvider
 	.when('/', {
-		templateUrl: 'partials/home.html',
-		controller: 'homeCtrl'
+		templateUrl: 'partials/bins.html',
+		controller: 'binsCtrl'
 	})
 	.when('/settings', {
 		templateUrl: 'partials/settings.html',
@@ -58,9 +59,17 @@ app.config(function($routeProvider){
 		templateUrl: 'partials/bins.html',
 		controller: 'binsCtrl'
 	})
+	.when('/signin', {
+		templateUrl: 'partials/signin.html',
+		controller: 'signinCtrl'
+	})
+	.when('/signup', {
+		templateUrl: 'partials/signup.html',
+		controller: 'signupCtrl'
+	})
 	.otherwise({
-		redirectTo: 'partials/home.html',
-		controller: 'homeCtrl'
+		redirectTo: 'partials/404.html',
+		controller: 'errCtrl'
 	})
 	.html5Mode = true;
 });

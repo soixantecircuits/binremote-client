@@ -1,5 +1,5 @@
 $(function(){
-	$('#scan-btn').on('click', function(e){
+	$('#scan-btn').on('click', function (e){
 		e.preventDefault();
 		var btn = $('#scan-btn');
 		if(!btn.hasClass('scanning')){
@@ -9,4 +9,9 @@ $(function(){
 		}
 		btn.toggleClass('scanning');
 	});
+	$('#logout-btn').on('click', function (e){
+		e.preventDefault();
+		binremoteServer.logout();
+		window.location = "#/signin";
+	})
 });

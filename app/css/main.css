@@ -17,19 +17,22 @@ ul.menu > li {
 }
 
 /*
-	LOGIN FORM
+	LOGIN FORMS
 */
 
-form.login {
+form.login,
+form.signup {
 	margin:0 auto 30px;
 	width: 300px;
 }
 
-.login h2 {
+.login h2,
+.signup h2 {
 	text-align: center;
 }
 
-.login > input {
+.login > input,
+.signup > input {
 	width: 94%;
 	padding: 0 3%;
 	height: 30px;
@@ -39,14 +42,16 @@ form.login {
 	margin: 10px auto;
 }
 
-.login > label {
+.login > label,
+.signup > label {
 	text-align: left;
 	margin-top: 5px;
 	text-transform: uppercase;
 	font-weight: 700;
 }
 
-.login .info {
+.login .info,
+.signup .info {
 	text-align: center;
 }
 
