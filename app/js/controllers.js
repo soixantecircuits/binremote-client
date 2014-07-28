@@ -1,31 +1,11 @@
 app.controller('mainCtrl', function ($scope){
 	binremoteServer._tryResumeLogin()
 		.then(function (id){
-			console.log(id);
-			binremoteServer.subscribe("remotes");
-			binremoteServer.subscribe("users");
-
-			var users = binremoteServer.getCollection('users');
-			var user = users.reactiveQuery({}).result;
-			user = user[0];
-
-			currentUser.mail = user.profile.email;
-			currentUser.company = user.profile.company.name;
-			currentUser.group = user.profile.company.group;
-			storage.setItem('user', currentUser);
-
-			remotes = binremoteServer.getCollection('remotes');
-			remotesQuery = remotes.reactiveQuery({});
-			remotesQuery.on('change', function (){
-				var data = this.result;
-				data = data[0];
-				storage.setItem('remotes', data);
-				checkStateChange();
-			});
+			connectionCallback(id);
 		})
 		.fail(function (err){
 			window.location = "#/signin";
-			console.log(err);
+			// console.log(err);
 		})
 
 	$scope.toggleScan = function(){
@@ -36,6 +16,10 @@ app.controller('mainCtrl', function ($scope){
 		} else {
 			emitter.end();
 		}
+	}
+
+	$scope.logout = function(){
+		binremoteServer.logout();
 	}
 
 })

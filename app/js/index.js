@@ -15,7 +15,7 @@ function scanDisk(cb){
 			bin = JSON.parse(bin);
 			bin.id = bins.length + 1;
 			bin.lastupdate = Date.now();
-			bin.state = 'iddle';
+			bin.active = false;
 			bins.push(bin);
 			if(cb){
 				cb();

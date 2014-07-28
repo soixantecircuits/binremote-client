@@ -1,4 +1,5 @@
-var binremoteServer = new Asteroid("localhost:3000");
+// var binremoteServer = new Asteroid("localhost:3000");
+var binremoteServer = new Asteroid("binremote.meteor.com");
 
 function connectToMeteor(mail, pass, cb) {
 	console.log('connect to meteor');
@@ -16,57 +17,61 @@ function connectToMeteor(mail, pass, cb) {
 		}
 	})
 	.done(function(res) {
-		binremoteServer.subscribe("remotes");
-		binremoteServer.subscribe("users");
-
-		var users = binremoteServer.getCollection('users');
-		var userQuery = users.reactiveQuery({}).result;
-		user = userQuery[0];
-
-		currentUser.mail = user.profile.email;
-		currentUser.company = user.profile.company.name;
-		currentUser.group = user.profile.company.group;
-		storage.setItem('user', user);
-
-		var remotes = binremoteServer.getCollection('remotes');
-		var remotesQuery = remotes.reactiveQuery({});
-		remotesQuery.on('change', function (){
-			var data = this.result;
-			data = data[0];
-			storage.setItem('remotes', data);
-			checkStateChange();
-		});
-		if(currentUser.path != ''){
-			window.location = "#/bins";
-		} else {
-			window.location = "#/path";
-		}
+		connectionCallback(res);
 	})
 	cb();
 }
 
-var activeBin = [];
-function checkStateChange(){
-	var data = storage.getItem('remotes');
+binremoteServer.on('logout', function(){
+	console.log('logged out');
+});
 
-	if(data != undefined){
-		_.forEach(data.bins, function(bin){
-			console.log(activeBin);
-			var binFind = _.findIndex(activeBin, function(el){
-				console.log(el);
-				return bin.id === el;
-			});
-			console.log(binFind);
-			if(bin.state == 'started' && binFind < 0){
-				startBin(bin);
-				activeBin.push(bin.id);
-				console.log('I just launched: ' + bin.name);
-			} else if(bin.state == 'iddle' && binFind > 0){
-				stopBin(bin);
-				_.pluck(activeBin, bin.id);
-				console.log('I just killed: ' + bin.name);
+function connectionCallback(res){
+	console.log(res);
+
+	binremoteServer.subscribe("remotes");
+	binremoteServer.subscribe("users");
+
+	var users = binremoteServer.getCollection('users');
+	var userQuery = users.reactiveQuery({}).result;
+	user = userQuery[0];
+
+	currentUser.mail = user.profile.email;
+	currentUser.company = user.profile.company.name;
+	currentUser.group = user.profile.company.group;
+	storage.setItem('user', user);
+
+	var remotes = binremoteServer.getCollection('remotes');
+	var remotesQuery = remotes.reactiveQuery({});
+	remotesQuery.on('change', function (){
+		var data = this.result;
+		data = data[0];
+		checkState(data);
+		storage.setItem('remotes', data);
+	});
+
+	if(currentUser.path != ''){
+		window.location = "#/bins";
+	} else {
+		window.location = "#/path";
+	}
+}
+
+function checkState(currentBins){
+	var current = currentBins.bins
+	var prevBins = storage.getItem('remotes');
+	if(prevBins != undefined){
+		var prev = prevBins.bins;
+		for(var i = 0; i < prev.length; i++){
+			if(prev[i].state != current[i].state){
+				// console.log(prev[i], current[i]);
+				if(current[i].state == "started"){
+					startBin(prev[i]);
+				} else {
+					stopBin(prev[i]);
+				}
 			}
-		})
+		}
 	}
 }
 
