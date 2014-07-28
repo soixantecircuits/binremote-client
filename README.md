@@ -28,24 +28,12 @@ To add an application, go in your application folder and add a `remote.json` fil
 {
 	"name": "Super App",
 	"img": "/path/to/the/thumbnail",
-	"run": "cd /path/to/your/app && make run",
-	"kill": "kill $(ps aux | grep 'superApp' | awk '{print $2}')"
+	"run": "/path/to/your/app/bin/./superApp",
+	"kill": "kill $(ps -ef | grep superApp | awk '{print $2}')"
 }
 ```
 
-If you don't want to change the crawler root directory, you'll need to manage your apps like this:
-```
-/
-home/
-	|  user/
-			|  sources/
-						|   of/
-						|   python/
-						|   processing/
-								and_so_on ...
-```
-
-Refresh the page, and that's it !
+> HINT: Don't be shy and launch multiple processes with a `run.sh` and a `kill.sh` script :)
 
 ### Troubleshooting
 
