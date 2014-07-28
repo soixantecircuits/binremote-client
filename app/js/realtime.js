@@ -16,33 +16,44 @@ function connectToMeteor(mail, pass, cb) {
 		}
 	})
 	.done(function(res) {
-		binremoteServer.subscribe("remotes");
-		binremoteServer.subscribe("users");
-
-		var users = binremoteServer.getCollection('users');
-		var userQuery = users.reactiveQuery({}).result;
-		user = userQuery[0];
-
-		currentUser.mail = user.profile.email;
-		currentUser.company = user.profile.company.name;
-		currentUser.group = user.profile.company.group;
-		storage.setItem('user', user);
-
-		var remotes = binremoteServer.getCollection('remotes');
-		var remotesQuery = remotes.reactiveQuery({});
-		remotesQuery.on('change', function (){
-			var data = this.result;
-			data = data[0];
-			storage.setItem('remotes', data);
-			checkStateChange();
-		});
-		if(currentUser.path != ''){
-			window.location = "#/bins";
-		} else {
-			window.location = "#/path";
-		}
+		connectionCallback(res);
 	})
 	cb();
+}
+
+binremoteServer.on('logout', function (){
+	console.log("logged out");
+})
+
+function connectionCallback(res){
+	console.log(res);
+
+	binremoteServer.subscribe("remotes");
+	binremoteServer.subscribe("users");
+
+	var users = binremoteServer.getCollection('users');
+	var userQuery = users.reactiveQuery({}).result;
+	user = userQuery[0];
+
+	currentUser.mail = user.profile.email;
+	currentUser.company = user.profile.company.name;
+	currentUser.group = user.profile.company.group;
+	storage.setItem('user', user);
+
+	var remotes = binremoteServer.getCollection('remotes');
+	var remotesQuery = remotes.reactiveQuery({});
+	remotesQuery.on('change', function (){
+		var data = this.result;
+		data = data[0];
+		storage.setItem('remotes', data);
+		checkStateChange();
+	});
+
+	if(currentUser.path != ''){
+		window.location = "#/bins";
+	} else {
+		window.location = "#/path";
+	}
 }
 
 var activeBin = [];
