@@ -120,6 +120,15 @@ module.exports = function (grunt) {
           dest: '<%= config.tmp %>/app.nw'
         }]
       }
+    },
+    watch: {
+        app: {
+            files: [ 'app/**' ],
+            tasks: [ 'dist-linux' ],
+            options: {
+                spawn: false
+            }
+        }
     }
   });
 
@@ -272,14 +281,15 @@ module.exports = function (grunt) {
     });
   });
 
-  grunt.registerTask('launch-nw', function(){
-    var exec = require('child_process').exec;
-    exec('./dist/./node-webkit ./dist/app.nw')
-  })
+    grunt.registerTask('launch-nw', function(){
+        var exec = require('child_process').exec;
+        exec('./dist/./node-webkit ./dist/app.nw')
+    });
 
   grunt.registerTask('default', [
     'dist-linux',
-    'launch-nw'
+    'launch-nw',
+    'watch'
   ]);
 
 };
