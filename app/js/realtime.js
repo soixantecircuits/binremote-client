@@ -4,33 +4,33 @@ binremoteServer.on('logout', function(){
     console.log('logged out');
 });
 
-function connectionHandler(res, mail){
-    if(res === undefined)
-        return res;
+// function connectionHandler(res, mail){
+//     if(res === undefined)
+//         return res;
 
-    binremoteServer.subscribe("remotes");
-    binremoteServer.subscribe("users");
+//     binremoteServer.subscribe("remotes");
+//     binremoteServer.subscribe("users");
 
-    var users = binremoteServer.getCollection('users');
-    var userQuery = users.reactiveQuery({ 'profile.email': mail }).result;
-    user = userQuery[0];
+//     var users = binremoteServer.getCollection('users');
+//     var userQuery = users.reactiveQuery({ 'profile.email': mail }).result;
+//     user = userQuery[0];
 
-    currentUser = user.profile;
-    currentUser.path = process.env.HOME;
-    currentUser.pcname = require('os').hostname();
+//     currentUser = user.profile;
+//     currentUser.path = process.env.HOME;
+//     currentUser.pcname = require('os').hostname();
 
-    // regarder à cause de "@" qui doit niquer la regex
-    usersCollection.upsert( user.profile, 'email', user.profile.email);
+//     // regarder à cause de "@" qui doit niquer la regex
+//     usersCollection.upsert( user.profile, 'email', user.profile.email);
 
-    var remotes = binremoteServer.getCollection('remotes');
-    var remotesQuery = remotes.reactiveQuery({});
-    remotesQuery.on('change', function (){
-        var data = this.result;
-        data = data[0];
-        checkState(data);
-        binsCollection.update(data);
-    });
-}
+//     var remotes = binremoteServer.getCollection('remotes');
+//     var remotesQuery = remotes.reactiveQuery({});
+//     remotesQuery.on('change', function (){
+//         var data = this.result;
+//         data = data[0];
+//         checkState(data);
+//         binsCollection.update(data);
+//     });
+// }
 
 function checkState(currentBins){
     var current = currentBins.bins

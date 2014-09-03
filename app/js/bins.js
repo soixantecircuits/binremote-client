@@ -1,4 +1,4 @@
-app.controller('binsCtrl', function ($scope, $route, $location, $templateCache){
+app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $templateCache){
     $scope.bins = binsCollection.items;
     $scope.isScanning = false;
 
@@ -11,7 +11,6 @@ app.controller('binsCtrl', function ($scope, $route, $location, $templateCache){
     } else {
         $scope.count = $scope.bins;
     }
-    $scope.path = $scope.currentUser.path;
 
     $scope.toggleScan = function(){
         if(!$scope.isScanning){
@@ -26,10 +25,10 @@ app.controller('binsCtrl', function ($scope, $route, $location, $templateCache){
     }
 
     $scope.scanDisk = function(cb, $element){
-        console.log('Crawling from: ' + $scope.currentUser.path);
+        console.log('Crawling from: ' + $rootScope.currentUser.path);
         $scope.isScanning = true;
 
-        emitter = walk($scope.currentUser.path);
+        emitter = walk($rootScope.currentUser.path);
         emitter.on('file', function (file, stat){
             if(file.indexOf('remote.json') > -1) {
                 console.log('Remote found in: ' + file);
@@ -63,8 +62,8 @@ app.controller('binsCtrl', function ($scope, $route, $location, $templateCache){
 
     $scope.createRemote = function(){
         var remote = {
-            PCname: $scope.currentUser.pcname,
-            group: $scope.currentUser.group,
+            PCname: $rootScope.currentUser.pcname,
+            group: $rootScope.currentUser.group,
             bins: binsCollection.items
         }
         return remote;

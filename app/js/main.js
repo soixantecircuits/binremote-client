@@ -1,10 +1,8 @@
 'use strict';
 
-app.controller('mainCtrl', function ($scope, $location){
-    $scope.currentUser = {
-        path: '/home/debian/'
-    };
-    $scope.messages = {
+app.controller('mainCtrl', function ($scope, $rootScope, $location){
+    $rootScope.currentUser = usersCollection.items[0] || {};
+    $rootScope.messages = {
         log: ''
     };
 
@@ -20,4 +18,4 @@ app.controller('mainCtrl', function ($scope, $location){
     $scope.logout = function(){
         binremoteServer.logout();
     }
-})
+});

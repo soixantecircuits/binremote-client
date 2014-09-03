@@ -3,7 +3,7 @@
         <h2>Welcome, <span ng-bind="screenAction"></span></h2>
 
         <input type="text" ng-show="signup" ng-model="credentials.company" placeholder="Company name">
-        <input type='mail' ng-model="credentials.mail" placeholder="email" autofocus/>
+        <input type='mail' ng-model="credentials.mail" value="{{credentials.mail}}" placeholder="email" autofocus/>
         <input type='password' ng-model="credentials.pass" placeholder="password"/>
 
         <!-- <input type='submit' value='Sign in' /> -->
