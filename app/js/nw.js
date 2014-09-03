@@ -1,3 +1,5 @@
+'use strict';
+
 var isNode = typeof global !== "undefined" && {}.toString.call(global) == '[object global]';
 
 if(isNode){
@@ -7,6 +9,4 @@ if(isNode){
 
 	var win = require('nw.gui').Window.get();
 	win.showDevTools();
-
-	// ddpp.close();
 }

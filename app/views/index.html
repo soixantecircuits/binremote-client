@@ -7,34 +7,29 @@
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 </head>
 <body ng-controller="mainCtrl">
-	<header id="main-header" class="main-header" >
-		<h1>Bin Remote Client</h1>
-		<ul class="menu">
-			<li><a href="javscript:void(0);" title="Scan" ng-click='toggleScan()'>Scan</a></li>
-			<li><a href="#/bins">Bins</a></li>
-			<li><a href="#/path">Path</a></li>
-			<li><a href="#/signin" title="Log out" ng-click="logout()">Log out</a></li>
-		</ul>
-	</header>
+	<div class="error" ng-bind='messages.log'></div>
 
 	<div id="view-container">
 		<div ng-view></div>
 	</div>
 
-	<footer class="main-footer">made with &lt;3 and fun by <img src="../img/soixante_logo.png" alt="logo Soixante Circuits"></footer>
-
-	<script src="../js/lib/jquery-2.1.1.min.js"></script>
+	<!-- ANGULAR -->
 	<script src='../js/lib/angular/angular.js'></script>
 	<script src='../js/lib/angular/angular-route.js'></script>
-	<script src="../js/lib/garlic.js"></script>
+	<!-- METEOR RELATED LIBS -->
 	<script src="../js/lib/ddp.js"></script>
 	<script src="../js/lib/q.js"></script>
 	<script src="../js/lib/asteroid.js"></script>
 
+	<!-- APP SCRIPTS -->
 	<script src='../js/nw.js'></script>
 	<script src='../js/settings.js'></script>
-	<script src="../js/index.js"></script>
 	<script src="../js/realtime.js"></script>
-	<script src='../js/controllers.js'></script>
+	<script src="../js/routes.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/signup.js"></script>
+	<script src="../js/bins.js"></script>
+	<!-- // <script src="../js/index.js"></script> -->
+	<!-- // <script src='../js/controllers.js'></script> -->
 </body>
 </html>

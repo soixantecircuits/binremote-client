@@ -125,14 +125,14 @@ input:focus {
 	color: #212121;
 }
 
-input[type='submit'] {
+button[type='submit'] {
 	color: #FFF;
 	background-color: #212121;
 	width: 100%;
 }
 
-input[type='submit']:hover,
-input[type='submit']:focus {
+button[type='submit']:hover,
+button[type='submit']:focus {
 	color: #212121;
 	background-color: #FFF;
 }
