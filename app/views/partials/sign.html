@@ -1,14 +1,17 @@
 <div>
-    <form class="vertical-forms" ng-submit="submit()">
+    <form class="vertical-forms" ng-submit="submit()" ng-hide="confirmation" name="signform">
         <h2>Welcome, <span ng-bind="screenAction"></span></h2>
 
-        <input type="text" ng-show="signup" ng-model="credentials.company" placeholder="Company name">
-        <input type='mail' ng-model="credentials.mail" value="{{credentials.mail}}" placeholder="email" autofocus/>
-        <input type='password' ng-model="credentials.pass" placeholder="password"/>
+        <input type="text" ng-show="signup" ng-model="credentials.company" ng-minlength="3" name="company" placeholder="Company name">
+        <input type='mail' ng-model="credentials.mail" value="{{credentials.mail}}" ng-minlength="3" name="email" placeholder="email" autofocus/>
+        <input type='password' ng-model="credentials.pass" ng-minlength="3" name="pass" placeholder="password"/>
 
-        <!-- <input type='submit' value='Sign in' /> -->
         <button type="submit"><span ng-bind="screenAction"></span></button>
 
         <p class="info" ng-hide="signup">Or <a href="" ng-click="changeSignMode()">create an accout</a>.</p>
     </form>
+
+    <div class="confirmation" ng-show="confirmation">
+        <p>You will receive a confirmation email shortly!</p>
+    </div>
 </div>

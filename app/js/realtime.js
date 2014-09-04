@@ -1,9 +1,3 @@
-var binremoteServer = new Asteroid("binremote.meteor.com");
-
-binremoteServer.on('logout', function(){
-    console.log('logged out');
-});
-
 // function connectionHandler(res, mail){
 //     if(res === undefined)
 //         return res;

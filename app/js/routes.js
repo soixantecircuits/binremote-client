@@ -1,6 +1,6 @@
 'use strict';
 
-app.config(function($routeProvider){
+app.config(function ($routeProvider){
     $routeProvider
     .when('/', {
         templateUrl: 'partials/sign.html',
@@ -14,13 +14,8 @@ app.config(function($routeProvider){
         templateUrl: 'partials/bins.html',
         controller: 'binsCtrl'
     })
-    .when('/path', {
-        templateUrl: 'partials/path.html',
-        controller: 'pathCtrl'
-    })
     .otherwise({
         redirectTo: 'partials/404.html',
         controller: 'errCtrl'
     })
-    .html5Mode = true;
 });
