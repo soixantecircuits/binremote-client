@@ -24,7 +24,7 @@ app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $tem
         }
     }
 
-    $scope.scanDisk = function(cb, $element){
+    $scope.scanDisk = function(cb){
         console.log('Crawling from: ' + $rootScope.currentUser.path);
         $scope.isScanning = true;
 

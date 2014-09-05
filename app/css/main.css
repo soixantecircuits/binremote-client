@@ -279,9 +279,29 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    height: 35px;
+    height: 12px;
     width: 100%;
     background: #5998b0;
+    padding: 12px;
+}
+
+.head-nav > button {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    margin-right: 2px;
+}
+
+#nwClose {
+    background:#e86f56;
+}
+
+#nwMax {
+    background:#FCC868;
+}
+#nwMin {
+    background:#81a567;
 }
 
 .main-window{
