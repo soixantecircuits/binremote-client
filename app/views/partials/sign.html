@@ -1,17 +1,36 @@
 <div>
-    <form class="vertical-forms" ng-submit="submit()" ng-hide="confirmation" name="signform">
-        <h2>Welcome, <span ng-bind="screenAction"></span></h2>
+    <div class="signform-logo"></div>
 
-        <input type="text" ng-show="signup" ng-model="credentials.company" ng-minlength="3" name="company" placeholder="Company name">
-        <input type='mail' ng-model="credentials.mail" value="{{credentials.mail}}" ng-minlength="3" name="email" placeholder="email" autofocus/>
-        <input type='password' ng-model="credentials.pass" ng-minlength="3" name="pass" placeholder="password"/>
+    <h2 class="view-title">Welcome, <span ng-bind="screenAction"></span></h2>
 
-        <button type="submit"><span ng-bind="screenAction"></span></button>
+    <div class="main-window signup">
+        <div class="login-bg"></div>
+        <form class="vertical-forms signform" ng-submit="submit()" ng-hide="confirmation" name="signform">
 
-        <p class="info" ng-hide="signup">Or <a href="" ng-click="changeSignMode()">create an accout</a>.</p>
-    </form>
+            <div>
+                <input type="text" ng-show="signup" ng-model="credentials.company" ng-minlength="3" name="Company" placeholder="Company name" />
+                <span class="validation-icon"></span>
+            </div>
+            <div>
+                <input type='email' ng-model="credentials.mail" value="{{credentials.mail}}" required name="email" placeholder="Email" autofocus/>
+                <span class="validation-icon"></span>
+            </div>
+            <div>
+                <input type='password' ng-model="credentials.pass" ng-minlength="4" required name="pass" placeholder="Password"/>
+                <span class="validation-icon"></span>
+            </div>
 
-    <div class="confirmation" ng-show="confirmation">
-        <p>You will receive a confirmation email shortly!</p>
+            <label class="checkbox-label"><input type="checkbox" name="" value="">Remember password</label>
+
+            <button type="submit" class="signform-submit"><span ng-bind="screenAction"></span></button>
+
+            <p class="info" ng-hide="signup">Or <a href="" ng-click="changeSignMode()">create an accout</a>.</p>
+        </form>
+
+        <div class="confirmation" ng-show="confirmation">
+            <p>You will receive a confirmation email shortly!</p>
+        </div>
     </div>
+
+
 </div>

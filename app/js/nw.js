@@ -8,5 +8,5 @@ if(isNode){
 	});
 
 	var win = require('nw.gui').Window.get();
-	win.showDevTools();
+	// win.showDevTools();
 }
