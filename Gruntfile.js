@@ -6,7 +6,7 @@ module.exports = function (grunt) {
   // load all grunt tasks
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
-
+  grunt.loadNpmTasks('grunt-node-webkit-builder');
   // configurable paths
   var config = {
     app: 'app',
@@ -27,6 +27,13 @@ module.exports = function (grunt) {
           ]
         }]
       }
+    },
+    nodewebkit: {
+      options: {
+          platforms: ['win','osx','linux32','linux64'],
+          buildDir: './webkitbuilds', // Where the build version of my node-webkit app is saved
+      },
+      src: ['./app/*'] // Your node-webkit app
     },
     jshint: {
       options: {
