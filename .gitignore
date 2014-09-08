@@ -8,3 +8,5 @@ tmp/
 *.jpg
 *.jpeg
 *.png
+cache
+webkitbuilds
