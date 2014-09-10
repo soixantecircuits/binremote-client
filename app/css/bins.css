@@ -1,0 +1,158 @@
+/*
+    BINS
+*/
+
+.main-window.bins {
+    margin: 60px 65px;
+    border-radius: 3px;
+}
+
+.bins-header {
+    /*width: 100%;*/
+    font-weight: 600;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    font-size: 16px;
+    padding: 10px;
+    background: #FFF;
+}
+
+.bins-header .bins-logo {
+    width: 148px;
+    height: 26px;
+    background: url('../assets/images/logo_dark_dashboard.png') center no-repeat;
+    margin-right: 10px;
+}
+
+.bins-header ul {
+    display: inline-block;
+}
+
+.bins-header ul > li{
+    display: inline-block;
+    padding: 10px;
+    font-size: 16px;
+    position: relative;
+    margin: 0;
+}
+
+.bins-header .bins-logo,
+.bins-header .logout {
+    display: inline-block;
+}
+
+.bins-header ul > li::after {
+    content: '|';
+    position: relative;
+    right: -10px;
+    color: #4a525f;
+}
+
+.bins-header ul > li a:hover {
+    color: #FFF;
+    background: #439ba5;
+}
+
+.bins-header .bins-count span {
+    line-height: 20px;
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 8px;
+    background: #FCC868;
+    border-radius: 50%;
+    color: #FFF;
+}
+
+.bins-header .show-path-ctn {
+    /*position: relative;*/
+}
+
+.bins-header .show-path {
+    position: absolute;
+    top: 72px;
+    z-index: 1;
+}
+
+.bins-header .show-path::before {
+    top: -36px;
+}
+
+.bins-header .file-input{
+    display: inline-block;
+    position: relative;
+    width: 190px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.bins-header input[type='file'] {
+    position: relative;
+    text-align: right;
+    opacity: 0.01;
+    z-index: 5;
+    height: 30px;
+    width: 190px;
+    cursor: pointer;
+}
+
+.bins-header .fake-input {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    z-index: 0;
+    background: #FFF;
+    height: 28px;
+    border: 1px solid #4a525f;
+}
+
+.bins-header .path-btn {
+    display: inline-block;
+    padding: 0 20px;
+    height: 30px;
+}
+
+.bins-header .logout {
+
+}
+
+.bins-ul > li {
+    display: inline-block;
+    min-width: 250px;
+    max-width: 320px;
+    width: 100%;
+    margin: 10px 5%;
+    border: 1px solid #CCC;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bin-img{
+    padding-top: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    background-color: #54bfab; /* Old browsers */
+}
+
+.bins-ul > .iddle .bin-img {
+    -webkit-filter: blur(2px);
+}
+
+.bins-ul > .started .bin-img {
+    -webkit-filter: blur(0);
+}
+
+.bins-ul .bin-container {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #FFF;
+    border-radius: 0 0 5px 5px;
+}

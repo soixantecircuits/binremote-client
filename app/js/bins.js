@@ -2,6 +2,23 @@ app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $tem
     $scope.bins = binsCollection.items;
     $scope.isScanning = false;
 
+    console.log($rootScope.currentUser);
+
+    $scope.showPath = false;
+    $scope.path = $rootScope.currentUser.path;
+    $scope.$watch('path',function(newPath){
+        if(newPath.length > 0){
+            console.log(newPath);
+            $scope.path = newPath;
+            $rootScope.currentUser.path = newPath;
+        }
+    })
+
+    $scope.savePath = function(){
+        $rootScope.currentUser.path = $scope.path;
+        console.log($rootScope.currentUser.path);
+    }
+
     var emitter;
 
     if($scope.bins === undefined){

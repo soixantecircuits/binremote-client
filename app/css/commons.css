@@ -1,0 +1,157 @@
+/*
+    COMMONS
+*/
+
+body {
+    font-family: 'Source Sans Pro';
+    width: 100%;
+    height: 100%;
+}
+
+.background {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #54bfab; /* Old browsers */
+    background: -moz-linear-gradient(top, #54bfab 0%, #439ba5 30%, #54bfab 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#54bfab), color-stop(30%,#439ba5), color-stop(100%,#54bfab)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #54bfab 0%,#439ba5 30%,#54bfab 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #54bfab 0%,#439ba5 30%,#54bfab 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #54bfab 0%,#439ba5 30%,#54bfab 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #54bfab 0%,#439ba5 30%,#54bfab 100%); /* W3C */
+}
+
+.head-nav {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 100%;
+    background: #5998b0;
+    padding: 12px;
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.head-nav:active {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+.head-nav > button {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 2px;
+    -webkit-app-region: no-drag;
+    cursor: pointer;
+}
+
+#nwClose {
+    background:#e86f56;
+}
+
+#nwMax {
+    background:#FCC868;
+}
+#nwMin {
+    background:#81a567;
+}
+
+.main-window{
+    background: #edeff0;
+    z-index: 2;
+    min-width: 250px;
+}
+
+#view-container {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    color: #FFF;
+    background-color: #e86f56;
+    text-transform: uppercase;
+}
+
+.tooltip {
+    width: 325px;
+    margin: auto;
+    background: #FFF;
+    padding: 20px 30px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 2px;
+}
+
+.tooltip::before {
+    content: '';
+    display: inline-block;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #FFF;
+    left:152px;
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('../assets/fonts/SourceSansPro/SourceSansPro-Light.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../assets/fonts/SourceSansPro/SourceSansPro-Semibold.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 300;
+    src: url('../assets/fonts/SourceSansPro/SourceSansPro-LightIt.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/SourceSansPro/SourceSansPro-It.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 600;
+    src: url('../assets/fonts/SourceSansPro/SourceSansPro-SemiboldIt.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/SourceSansPro/SourceSansPro-BoldIt.ttf');
+}

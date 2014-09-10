@@ -22,12 +22,12 @@
 
             <label class="checkbox-label"><input type="checkbox" name="" value="">Remember password</label>
 
-            <button type="submit" class="signform-submit"><span ng-bind="screenAction"></span></button>
+            <button type="submit" class="btn signform-submit"><span ng-bind="screenAction"></span></button>
 
             <p class="info" ng-hide="signup">Or <a href="" ng-click="changeSignMode()">create an accout</a>.</p>
         </form>
 
-        <div class="confirmation" ng-show="confirmation">
+        <div class="confirmation tooltip" ng-show="confirmation">
             <p>You will receive a confirmation email shortly!</p>
         </div>
     </div>

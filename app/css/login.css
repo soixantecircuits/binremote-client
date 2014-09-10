@@ -1,0 +1,162 @@
+/*
+    LOGIN FORMS
+*/
+
+.signform-logo {
+    width: 223px;
+    height: 38px;
+    margin: 50px auto 0;
+    background: url('../assets/images/logo_white1.png') center no-repeat;
+}
+
+.view-title {
+    margin: 20px 0 0;
+    text-align: center;
+    color: #FFF;
+}
+
+.view-title > span {
+    color: #0F0F0F;
+}
+
+.main-window.signup {
+    max-width: 460px;
+    border-bottom: 10px solid #4c5562;
+    padding-bottom: 50px;
+    margin: 30px auto;
+}
+
+.main-window .login-bg {
+    width: 100%;
+    height: 364px;
+    background: url('../assets/images/illu_login.png') center no-repeat;
+}
+
+.signform {
+    padding: 0 45px;
+}
+
+.vertical-forms h2 {
+    text-align: center;
+}
+
+.vertical-forms > div {
+    position: relative;
+}
+
+.vertical-forms > div >input,
+.vertical-forms button {
+    padding: 0 40px;
+    height: 55px;
+    font-size: 18px;
+    vertical-align: middle;
+    display: block;
+    margin: 5px auto;
+}
+
+.vertical-forms > div >input {
+    width:290px;
+    border: 1px solid #FFF;
+}
+
+input.ng-invalid.ng-dirty {
+  border: 1px solid #e86f56;
+}
+
+input.ng-dirty.ng-valid {
+  border: 1px solid #81a567;
+}
+
+input + span.validation-icon {
+    width: 16px;
+    height: 16px;
+    background: transparent center no-repeat;
+    display: inline-block;
+    position: absolute;
+    top: 21px;
+    right: 12px;
+}
+
+
+input.ng-invalid.ng-dirty + span.validation-icon {
+    background: url('../assets/images/not_ok.png');
+}
+
+input.ng-dirty.ng-valid + span.validation-icon {
+    background: url('../assets/images/ok.png');
+}
+
+.checkbox-label {
+    line-height: 25px;
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.checkbox-label > input[type='checkbox']::after {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border: 3px solid #FFF;
+    background: #FFF;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.checkbox-label > input[type='checkbox']:focus::after {
+    box-shadow: 0 0 5px #DDD;
+}
+
+.checkbox-label > input[type='checkbox']:checked::after {
+    background: #4a525f;
+}
+
+.checkbox-label > input[type='checkbox'] {
+    position: relative;
+    top: -2px;
+    margin-right: 10px;
+}
+
+.confirmation::before {
+    top: -28px;
+}
+
+.confirmation p {
+    font-size: 20px;
+    text-align: left;
+    color: #4a525f;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+button:hover {
+    border-color: #4a525f;
+    border: none;
+}
+
+input {
+    border: none;
+    color: #777;
+}
+
+input:hover,
+input:focus {
+    color: #4a525f;
+}
+
+.info {
+    text-align: center;
+    color: #777;
+    z-index: 100;
+}
+
+.error {
+    text-align: center;
+    color: #C33;
+    z-index: 100;
+}

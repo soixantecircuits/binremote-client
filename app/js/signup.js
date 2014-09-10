@@ -40,29 +40,7 @@ app.controller('signCtrl', function ($scope, $rootScope, $location){
                 if(res === undefined)
                     return res;
 
-                binremoteServer.subscribe("remotes");
-                binremoteServer.subscribe("users");
-
-                var users = binremoteServer.getCollection('users');
-                var userQuery = users.reactiveQuery({ 'profile.email': $scope.credentials.mail }).result;
-                var user = userQuery[0];
-
-                $rootScope.currentUser = user.profile;
-                $rootScope.currentUser.path = process.env.HOME;
-                $rootScope.currentUser.pcname = require('os').hostname();
-
-                // regarder à cause de "@" qui doit niquer la regex
-                usersCollection.upsert( $rootScope.currentUser, 'email', user.profile.email);
-
-                var remotes = binremoteServer.getCollection('remotes');
-                var remotesQuery = remotes.reactiveQuery({});
-                remotesQuery.on('change', function (){
-                    var data = this.result;
-                    data = data[0];
-                    checkState(data);
-                    binsCollection.update(data);
-                });
-                window.location = '#/bins';
+                $rootScope.handleConnection('profile.email', $scope.credentials.mail);
             });
         }
     }

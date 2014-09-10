@@ -6,10 +6,11 @@
   "window": {
     "title": "Bin Remote Client",
     "position": "center",
-    "width": 720,
+    "width": 960,
     "height": 900,
     "min_width": 350,
     "min_height": 500,
+    "frame": false,
     "toolbar": true
   },
   "chromium-args": "--child-clean-exit"
