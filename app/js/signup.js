@@ -33,13 +33,14 @@ app.controller('signCtrl', function ($scope, $rootScope, $location){
             $scope.confirmation = true;
         } else {
             binremoteServer.loginWithPassword($scope.credentials.mail, $scope.credentials.pass)
-            .fail(function (res){
-                $scope.messages.log = res.reason;
+            .fail(function (res) {
+                $rootScope.$emit('onMessage', res.reason);
             })
             .done(function(res) {
                 if(res === undefined)
                     return res;
 
+                $rootScope.$emit('onMessage', 'Loggin in. Please wait ...');
                 $rootScope.handleConnection('profile.email', $scope.credentials.mail);
             });
         }

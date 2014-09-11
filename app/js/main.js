@@ -1,11 +1,24 @@
 'use strict';
 
-app.controller('mainCtrl', function ($scope, $rootScope, $location){
+app.controller('mainCtrl', function ($scope, $rootScope, $location, $timeout){
     $rootScope.currentUser = usersCollection.items[0] || {};
-    $rootScope.messages = {
-        log: ''
-    };
+    $scope.showMessage = false;
+    $scope.messages = '';
     $scope.isDraging = false;
+
+    // $rootScope.onMessage = function() {
+    $rootScope.$on('onMessage', function(event, mess){
+        $scope.messages = mess;
+        $scope.showMessage = true;
+        $timeout(function(){
+            $scope.showMessage = false;
+            $scope.messages = '';
+        }, 3000);
+    });
+
+    $scope.$on('$routeChangeSuccess', function(next, current) {
+        $scope.showMessage = false;
+    });
 
     binremoteServer._tryResumeLogin()
             .then(function (id){

@@ -155,6 +155,23 @@ body {
     left:152px;
 }
 
+.tooltip.message {
+    position: absolute;
+    z-index: 10;
+    top: 250px;
+    margin: auto;
+    -webkit-animation: 0.3s slideDown ease;
+}
+
+.tooltip.message:before {
+    top:-30px;
+}
+
+@-webkit-keyframes slideDown {
+    0% { top: -100px; opacity: 0 }
+    100% { top: 250px; opacity: 1 }
+}
+
 @font-face {
     font-family: 'Source Sans Pro';
     font-style: normal;

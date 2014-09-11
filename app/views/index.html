@@ -19,7 +19,8 @@
 		<button ng-click="nwMin()" id="nwMin"></button>
 	</nav>
 
-	<div class="error" ng-bind='messages.log'></div>
+	<!-- <div class="message tooltip" ng-bind='messages'></div> -->
+	<div class="message tooltip" ng-show="showMessage" ng-bind='messages'></div>
 
 	<div id="view-container">
 		<div ng-view></div>
