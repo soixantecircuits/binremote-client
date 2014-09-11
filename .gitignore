@@ -5,8 +5,4 @@ node_modules/
 dist/
 tmp/
 *.obj
-*.jpg
-*.jpeg
-*.png
 cache
-webkitbuilds
