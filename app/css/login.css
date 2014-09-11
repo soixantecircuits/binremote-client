@@ -160,16 +160,3 @@ input:focus {
     color: #C33;
     z-index: 100;
 }
-
-.loader {
-    max-width: 460px;
-    height: 10px;
-    background: #4c5562;
-    margin: 100px auto;
-    -webkit-animation: 2s loader ease;
-}
-
-@-webkit-keyframes loader {
-    0% { width: 0; }
-    100% { width: 460px; }
-}

@@ -26,6 +26,54 @@ body {
     background: linear-gradient(to bottom, #54bfab 0%,#439ba5 30%,#54bfab 100%); /* W3C */
 }
 
+/*
+    Following loader needs a special big up to
+    http://tobiasahlin.com/spinkit/
+ */
+.spinner {
+    margin: 100px auto;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.spinner > div {
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    -webkit-animation: stretchdelay 1.5s infinite ease-in-out;
+    animation: stretchdelay 1.5s infinite ease-in-out;
+    background: #FCC868;
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.3s;
+    animation-delay: -1.3s;
+    background: #e86f56;
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+    background: #81a567;
+}
+
+@-webkit-keyframes stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.6) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.6);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
 .head-nav {
     z-index: 10;
     position: fixed;
