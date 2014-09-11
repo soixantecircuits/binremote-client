@@ -1,58 +1,58 @@
 <div>
 
-	<div class="main-window bins">
+    <div class="main-window bins">
 
-		<header id="header" class="bins-header section">
-			<div class="bins-logo"></div>
-			<ul>
-				<li class="bins-count">Bins <span>{{count}}</span></li>
-				<li class="bins-scan"><a href="" ng-click="toggleScan()" title="Scan your disk">Scan</a></li>
-				<li class="show-path-ctn"><a href="" title="Your path" ng-click="showPath = !showPath">Path</a>
-					<div ng-show='showPath' class="show-path tooltip">
-						<form id="walk-dir-form">
-							<p>Change your crawler path:</p>
-							<div class="file-input">
-								<input type="file" id="path" ng-model="path" webkitdirectory directory />
-								<div class="fake-input">
-									<input type="text" value="{{currentUser.path}}" readonly>
-								</div>
-							</div>
-							<button class="btn path-btn" ng-click="savePath()">Save</button>
-						</form>
-					</div>
-				</li>
-			</ul>
-			<div class="logout">
-				<a href="#/" title="Log out" ng-click="logout()">Log out</a>
-			</div>
-		</header><!-- /header -->
+        <header id="header" class="bins-header section">
+            <div class="bins-logo"></div>
+            <ul>
+                <li class="bins-count">Bins <span>{{count}}</span></li>
+                <li class="bins-scan"><a href="" ng-click="toggleScan()" title="Scan your disk">Scan</a></li>
+                <li class="show-path-ctn"><a href="" title="Your path" ng-click="showPath = !showPath">Path</a>
+                    <div ng-show='showPath' class="show-path tooltip">
+                        <form id="walk-dir-form">
+                            <p>Change your crawler path:</p>
+                            <div class="file-input">
+                                <input type="file" id="path" ng-model="path" webkitdirectory directory />
+                                <div class="fake-input">
+                                    <input type="text" value="{{currentUser.path}}" readonly>
+                                </div>
+                            </div>
+                            <button class="btn path-btn" ng-click="savePath()">Save</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+            <div class="logout">
+                <a href="#/sign" title="Log out" ng-click="logout()">Log out</a>
+            </div>
+        </header><!-- /header -->
 
-		<div class="bins-bg"></div>
+        <div class="bins-bg"></div>
 
-		<section class="bins-section">
-			<div class="bins-dashboard">
-				<div>
-					<p>Your Bins</p>
-					<p>You currently have {{count}} bins.</p>
-				</div>
-				<div>
-					<p>Crawler will start from {{currentUser.path}}.</p>
-					<button class="btn scan-btn" ng-click="toggleScan()">Start scan</button>
-				</div>
-			</div>
-			<div class="bins-list">
-				<ul class="bins-ul">
-					<li ng-repeat="bin in bins" id="elem-{{bin.id}}" class="iddle trans-all">
-						<div class="bin-img" style="background-image:url('{{bin.img || '../assets/images/no_image_app_.png'}}');"></div>
-						<div class="bin-container">
-							<div class="bin-panel">
-								<h4>{{bin.name}}</h4>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</section>
+        <section class="bins-section">
+            <div class="bins-dashboard">
+                <div>
+                    <p>Your Bins</p>
+                    <p>You currently have {{count}} bins.</p>
+                </div>
+                <div>
+                    <p>Crawler will start from {{currentUser.path}}.</p>
+                    <button class="btn scan-btn" ng-click="toggleScan()">Start scan</button>
+                </div>
+            </div>
+            <div class="bins-list">
+                <ul class="bins-ul">
+                    <li ng-repeat="bin in bins" id="elem-{{bin.id}}" class="iddle trans-all">
+                        <div class="bin-img" style="background-image:url('{{bin.img || '../assets/images/no_image_app_.png'}}');"></div>
+                        <div class="bin-container">
+                            <div class="bin-panel">
+                                <h4>{{bin.name}}</h4>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-	</div>
+    </div>
 </div>

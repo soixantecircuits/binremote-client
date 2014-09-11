@@ -3,8 +3,7 @@
 app.config(function ($routeProvider){
     $routeProvider
     .when('/', {
-        templateUrl: 'partials/sign.html',
-        controller: 'signCtrl'
+        templateUrl: 'partials/loading.html'
     })
     .when('/sign', {
         templateUrl: 'partials/sign.html',

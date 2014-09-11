@@ -15,6 +15,7 @@ app.controller('mainCtrl', function ($scope, $rootScope, $location){
             })
             .fail(function (err){
                 console.log('connection failed');
+                window.location = '#/sign';
             });
 
     $scope.logout = function(){
