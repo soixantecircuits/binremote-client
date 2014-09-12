@@ -1,0 +1,55 @@
+@media (max-width: 680px) {
+    .background {
+        background: #73BDC6;
+    }
+
+    .main-window {
+        width: 100%;
+        margin: 60px auto !important;
+    }
+
+    .bins-header {
+        padding: 0;
+        background: #73BDC6;
+    }
+
+    .bins-header .bins-logo {
+        /*background: url('../')*/
+    }
+
+    .bins-header .logout {
+        top: 14px;
+    }
+
+    .bins-header .logout:hover a,
+    .bins-header .logout:active  a {
+        color: #FFF;
+    }
+
+    .bins-header ul {
+        padding: 0;
+        display: block;
+        text-align: center;
+        margin: 15px 0 0;
+        background: #FFF;
+    }
+
+    .bins-header ul > li {
+        margin: 0;
+        line-height: 50px;
+        font-size: 18px;
+        width: 32%;
+        border: none;
+    }
+
+    .bins-header ul > li a {
+        padding: 0;
+        width: 100%;
+        border-left: 1px solid #4a525f;
+    }
+
+    .bins-header ul > li a:before {
+        content: none;
+    }
+
+}

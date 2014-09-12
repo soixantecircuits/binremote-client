@@ -119,10 +119,6 @@ input.ng-dirty.ng-valid + span.validation-icon {
     margin-right: 10px;
 }
 
-.confirmation::before {
-    top: -28px;
-}
-
 .confirmation p {
     font-size: 20px;
     text-align: left;

@@ -21,7 +21,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #54bfab; /* Old browsers */
+    background: #73BDC6; /* Old browsers */
     background: -moz-linear-gradient(top, #54bfab 0%, #439ba5 30%, #54bfab 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#54bfab), color-stop(30%,#439ba5), color-stop(100%,#54bfab)); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, #54bfab 0%,#439ba5 30%,#54bfab 100%); /* Chrome10+,Safari5.1+ */
@@ -154,13 +154,14 @@ body {
 .tooltip::before {
     content: '';
     display: inline-block;
-    position: relative;
+    position: absolute;
     width: 0;
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid #FFF;
-    left:152px;
+    left: 50%;
+    top: -8px;
 }
 
 .tooltip.message {
@@ -169,10 +170,6 @@ body {
     top: 250px;
     margin: auto;
     -webkit-animation: 0.3s slideDown ease;
-}
-
-.tooltip.message:before {
-    top:-30px;
 }
 
 @-webkit-keyframes slideDown {
