@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('signCtrl', function ($scope, $rootScope, $location){
+app.controller('loginCtrl', function ($scope, $rootScope, $location){
     $scope.signup = false;
     $scope.confirmation = false;
     $scope.screenAction = $scope.signup ? 'Signup' : 'Sign in';

@@ -22,13 +22,12 @@ app.controller('mainCtrl', function ($scope, $rootScope, $location, $timeout){
 
     binremoteServer._tryResumeLogin()
             .then(function (id){
-                // connectionHandler(id);
                 $rootScope.handleConnection('_id', id);
                 console.log('connection done');
             })
             .fail(function (err){
                 console.log('connection failed');
-                window.location = '#/sign';
+                window.location = '#/login';
             });
 
     $scope.logout = function(){
@@ -77,7 +76,9 @@ app.controller('mainCtrl', function ($scope, $rootScope, $location, $timeout){
             var data = this.result;
             data = data[0];
             checkState(data);
-            binsCollection.update(data);
+            for (var i = data.bins.length - 1; i >= 0; i--) {
+                binsCollection.upsert(data.bins[i]);
+            };
         });
         window.location = '#/bins';
     }

@@ -25,6 +25,7 @@
             <button type="submit" class="btn signform-submit"><span ng-bind="screenAction"></span></button>
 
             <p class="info" ng-hide="signup">Or <a href="" ng-click="changeSignMode()">create an accout</a>.</p>
+            <p class="info" ng-show="signup">Or <a href="" ng-click="changeSignMode()">log in</a>.</p>
         </form>
 
         <div class="confirmation tooltip" ng-show="confirmation">

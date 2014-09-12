@@ -5,9 +5,9 @@ app.config(function ($routeProvider){
     .when('/', {
         templateUrl: 'partials/loading.html'
     })
-    .when('/sign', {
-        templateUrl: 'partials/sign.html',
-        controller: 'signCtrl'
+    .when('/login', {
+        templateUrl: 'partials/login.html',
+        controller: 'loginCtrl'
     })
     .when('/bins', {
         templateUrl: 'partials/bins.html',

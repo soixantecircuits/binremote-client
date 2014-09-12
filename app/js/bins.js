@@ -1,8 +1,7 @@
-app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $templateCache){
+app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $templateCache, $timeout){
+
     $scope.bins = binsCollection.items;
     $scope.isScanning = false;
-
-    console.log($rootScope.currentUser);
 
     $scope.showPath = false;
     $scope.path = $rootScope.currentUser.path;
@@ -12,14 +11,13 @@ app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $tem
             $scope.path = newPath;
             $rootScope.currentUser.path = newPath;
         }
-    })
+    });
 
     $scope.savePath = function(){
         $rootScope.currentUser.path = $scope.path;
         console.log($rootScope.currentUser.path);
     }
 
-    var emitter;
 
     if($scope.bins === undefined){
         $scope.count = 0;
@@ -31,16 +29,13 @@ app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $tem
 
     $scope.toggleScan = function(){
         if(!$scope.isScanning){
-            $scope.scanDisk(function (){
-                var currentPageTemplate = $route.current.templateUrl;
-                $templateCache.remove(currentPageTemplate);
-                $route.reload();
-            });
+            $scope.scanDisk();
         } else {
             emitter.end();
         }
     }
 
+    var emitter;
     $scope.scanDisk = function(cb){
         console.log('Crawling from: ' + $rootScope.currentUser.path);
         $scope.isScanning = true;
@@ -56,21 +51,31 @@ app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $tem
                 bin.path = file;
 
                 binsCollection.upsert(bin, 'path', bin.path);
+
+                var currentPageTemplate = $route.current.templateUrl;
+                $templateCache.remove(currentPageTemplate);
+                $route.reload();
             }
         }).on('end', function(){
             console.log('Disk scanned.');
             $scope.updateCollection();
             $scope.isScanning = false;
-            if(cb){
-                cb();
-            }
         });
     }
+
+    $timeout(function(){
+        $scope.scanDisk();
+    }, 900000)
 
     $scope.updateCollection = function() {
         var data = $scope.createRemote();
 
-        binremoteServer.call('addRemote', data); // on the cloud
+        var method = binremoteServer.call('addRemote', data);
+        method.result.then(function (res){
+            console.log('Response: ' + res);
+        }).catch(function onReject(err) {
+            console.error('FAILED', err)
+        });
 
         binsCollection.update(data);
 
@@ -97,4 +102,3 @@ app.controller('binsCtrl', function ($scope, $rootScope, $route, $location, $tem
         $element.find('#elem-'+el.id).removeClass('started').addClass('iddle');
     }
 });
-
