@@ -8,7 +8,7 @@
 }
 
 .bins-header {
-    /*width: 100%;*/
+    position: relative;
     font-weight: 600;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
@@ -26,6 +26,7 @@
 
 .bins-header ul {
     display: inline-block;
+    padding-right: 60px;
 }
 
 .bins-header ul > li{
@@ -46,6 +47,10 @@
     position: relative;
     right: -10px;
     color: #4a525f;
+}
+
+.bins-header a {
+    text-decoration: none;
 }
 
 .bins-header ul > li a:hover {
@@ -116,7 +121,9 @@
 }
 
 .bins-header .logout {
-
+    position: absolute;
+    top: 24px;
+    right: 10px;
 }
 
 .bins-ul > li {
