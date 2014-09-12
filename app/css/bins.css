@@ -22,13 +22,14 @@
     width: 148px;
     height: 26px;
     background: url('../assets/images/logo_dark_dashboard.png') center no-repeat;
-    margin-right: 10px;
+    margin: 0 30px;
 }
 
 .bins-header ul {
     display: inline-block;
     padding-right: 70px;
     font-size: 0;
+    margin-left: 30px;
 }
 
 .bins-header .bins-logo,
@@ -40,19 +41,20 @@
     display: inline-block;
     font-size: 16px;
     position: relative;
-    line-height: 50px;
+    line-height: 65px;
 }
 
-.bins-header ul > li a:before {
+.bins-header ul > .bins-count:after,
+.bins-header ul > li a:after {
     content: '|';
-    color: #4a525f;
+    color: rgba(0, 0, 0, 0.4);
     position: absolute;
-    left: 0;
+    right: 0;
 }
 
 .bins-header ul > li a {
     display: inline-block;
-    padding: 0 20px;
+    padding: 0 35px;
 }
 
 .bins-header a {
@@ -73,7 +75,7 @@
     background: #FCC868;
     border-radius: 50%;
     color: #FFF;
-    margin-right: 20px;
+    margin-right: 35px;
 }
 
 .bins-header .show-path {
@@ -122,7 +124,7 @@
 
 .bins-header .logout {
     position: absolute;
-    top: 18px;
+    top: 25px;
     right: 20px;
 }
 

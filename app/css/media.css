@@ -48,7 +48,8 @@
         border-left: 1px solid #4a525f;
     }
 
-    .bins-header ul > li a:before {
+    .bins-header ul > .bins-count:after,
+    .bins-header ul > li a:after {
         content: none;
     }
 
