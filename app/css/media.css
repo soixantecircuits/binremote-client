@@ -52,4 +52,8 @@
         content: none;
     }
 
+    .bins-ul > li {
+        margin: 10px auto;
+    }
+
 }

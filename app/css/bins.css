@@ -28,6 +28,7 @@
 .bins-header ul {
     display: inline-block;
     padding-right: 70px;
+    font-size: 0;
 }
 
 .bins-header .bins-logo,
@@ -125,23 +126,117 @@
     right: 20px;
 }
 
+.bins-bg {
+    height: 164px;
+    width: 100%;
+    background: url('../assets/images/illu_dashboard.png') center no-repeat;
+    background-size: cover;
+}
+
 .bins-ul > li {
     display: inline-block;
-    width: 200px;
+    width: 300px;
     margin: 10px 5%;
-    border: 1px solid #CCC;
     position: relative;
-    border-radius: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 7px #DDD;
+}
+
+.bins-ul li .bin-head,
+.bins-ul li .bin-img-container {
+    box-shadow: 1px 0 3px #CCC;
+}
+
+.bin-head {
+    background: #FFF;
+    line-height: 55px;
+}
+
+.bin-head > div {
+    display: inline-block;
+}
+.bin-head .bin-name {
+    color: #4a525f;
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.bin-head .bin-last-launch {
+    float: right;
+    margin-right: 15px;
+    color: #AAA;
+    font-size: 14px;
+}
+
+.bin-img-container {
+    height: 125px;
+    width: 100%;
     overflow: hidden;
 }
 
 .bin-img{
-    padding-top: 100%;
+    margin: -1px;
+    padding: 1px;
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
     background-color: #54bfab; /* Old browsers */
+    height: 125px;
+    width: 100%;
 }
+
+.bin-infos {
+    background: #4C5662;
+    color: #FFF;
+}
+
+.bin-infos > div {
+    display: inline-block;
+    position: relative;
+    margin: 15px 0 15px 25px;
+    padding-left: 10px;
+}
+
+.bin-infos > div:before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border: 3px solid;
+    border-radius: 50%;
+    top: 4px;
+    left: -10px;
+}
+
+.bin-infos .bin-uptime:before {
+    border-color: #81a567;
+}
+
+.bin-infos .bin-total-uptime:before {
+    border-color: #439ba5;
+}
+
+.bin-infos .bin-num-launchs:before {
+    border-color: #FCC868;
+}
+
+.bin-infos .bin-num-launchs {
+    float: right;
+    margin-right: 15px;
+}
+
+.bin-infos > div > p {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.bin-infos > div > p:first-child {
+    display: inline-block;
+    font-weight: 600;
+}
+
 
 .bins-ul > .iddle .bin-img {
     -webkit-filter: blur(2px);

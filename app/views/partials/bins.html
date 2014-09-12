@@ -43,10 +43,25 @@
             <div class="bins-list">
                 <ul class="bins-ul">
                     <li ng-repeat="bin in bins" id="elem-{{bin.id}}" class="iddle trans-all">
-                        <div class="bin-img" style="background-image:url('{{bin.img || '../assets/images/no_image_app_.png'}}');"></div>
-                        <div class="bin-container">
-                            <div class="bin-panel">
-                                <h4>{{bin.name}}</h4>
+                        <header class="bin-head">
+                            <div class="bin-name">{{bin.name}}</div>
+                            <div class="bin-last-launch">/{{bin.last || "24.07.2014"}}</div>
+                        </header>
+                        <div class="bin-img-container">
+                            <img src="{{bin.img || '../assets/images/no_image_app_.png'}}" class="bin-img">
+                        </div>
+                        <div class="bin-infos">
+                            <div class="bin-uptime">
+                                <p>UPTIME</p>
+                                <p>{{bin.uptime || 20}}min</p>
+                            </div>
+                            <div class="bin-total-uptime">
+                                <p>TOTAL</p>
+                                <p>{{bin.totalTime || '2h25'}}min</p>
+                            </div>
+                            <div class="bin-num-launchs">
+                                <p>LAUNCHED</p>
+                                <p>{{bin.launched || 12}} times</p>
                             </div>
                         </div>
                     </li>

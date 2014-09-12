@@ -8,7 +8,7 @@
     "position": "center",
     "width": 960,
     "height": 900,
-    "min_width": 325,
+    "min_width": 345,
     "min_height": 500,
     "frame": false,
     "toolbar": true
