@@ -20,7 +20,7 @@ To launch Bin Remote Client, type the following commands in a terminal:
 $ cd binremote-client/
 $ npm start
 ```
-Your server is now running.
+Your bin remote client is now running.
 
 To add an application, go in your application folder and add a `remote.json` file in it. Then, simply put the name of your application, the path to your thumbnail and the shell command to execute and kill it in the following format:
 
