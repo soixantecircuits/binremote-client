@@ -131,8 +131,67 @@
 .bins-bg {
     height: 164px;
     width: 100%;
-    background: url('../assets/images/illu_dashboard.png') center no-repeat;
+    background: url('../assets/images/illu_dashboard.png') center bottom no-repeat;
     background-size: cover;
+}
+
+.bins-dashboard {
+    background: #FFF;
+    margin-bottom: 30px;
+    display: table;
+    width: 100%;
+}
+
+.bins-dashboard > div {
+    display: table-cell;
+    padding: 20px 0;
+    vertical-align: middle;
+}
+
+.bins-dashboard > :first-child {
+    padding-left: 30px;
+}
+
+.bins-dashboard > :last-child {
+    padding-right: 30px;
+}
+
+.bins-dashboard-head > p {
+    margin-bottom: 0;
+    line-height: 29px;
+}
+
+.bins-dashboard-head .bdh-title {
+    color: #4a525f;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.bins-dashboard-head .bdh-content {
+    color: #f6c86f;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.bins-dashboard-scan {
+    text-align: right;
+    color: #848992;
+}
+
+.bins-dashboard-scan > p {
+    display: inline-block;
+}
+
+.bins-dashboard-scan > p > span {
+    font-weight: 700;
+}
+
+.bins-dashboard-scan .scan-btn {
+    line-height: 35px;
+    padding: 0 20px;
+    font-weight: 700;
+    margin-left: 20px;
 }
 
 .bins-ul > li {
@@ -158,6 +217,7 @@
 .bin-head > div {
     display: inline-block;
 }
+
 .bin-head .bin-name {
     color: #4a525f;
     font-size: 16px;

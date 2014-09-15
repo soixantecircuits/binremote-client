@@ -1,4 +1,4 @@
-@media (max-width: 680px) {
+@media (max-width: 795px) {
     .background {
         background: #73BDC6;
     }
@@ -14,7 +14,9 @@
     }
 
     .bins-header .bins-logo {
-        /*background: url('../')*/
+        background: url('../assets/images/logo_small.png') center no-repeat;
+        width: 43px;
+        height: 36px;
     }
 
     .bins-header .logout {
@@ -57,4 +59,27 @@
         margin: 10px auto;
     }
 
+}
+
+@media (max-width: 680px) {
+
+    .bins-dashboard > div {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .bins-dashboard > :first-child,
+    .bins-dashboard > :last-child {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .bins-dashboard .bins-dashboard-head > p {
+        display: inline-block;
+    }
+
+    .bins-dashboard .bins-dashboard-head .bdh-content:before {
+        content: ' / ';
+    }
 }

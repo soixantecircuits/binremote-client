@@ -31,12 +31,12 @@
 
         <section class="bins-section">
             <div class="bins-dashboard">
-                <div>
-                    <p>Your Bins</p>
-                    <p>You currently have {{count}} bins.</p>
+                <div class="bins-dashboard-head">
+                    <p class="bdh-title">Your Bins</p>
+                    <p class="bdh-content">You currently have {{count}} bins.</p>
                 </div>
-                <div>
-                    <p>Crawler will start from {{currentUser.path}}.</p>
+                <div class="bins-dashboard-scan">
+                    <p>Crawler will start from <span>{{currentUser.path}}.</span></p>
                     <button class="btn scan-btn" ng-click="toggleScan()">Start scan</button>
                 </div>
             </div>
